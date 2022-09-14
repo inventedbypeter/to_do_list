@@ -26,8 +26,8 @@ const ItemWrapper = styled.div`
   }
 `;
 
-function Item() {
-  const [check, setCheck] = useState(false);
+function Item(props) {
+  const [check, setCheck] = useState(props.checked);
 
   const clickBox = () => {
     if (check === false) {
@@ -42,13 +42,13 @@ function Item() {
 
   return (
     <ItemWrapper boxColor={boxColor}>
-      <div className="text">Hello!</div>
+      <div className="text">{props.text}</div>
       <div
         className="box"
         onClick={() => {
           clickBox();
         }}
-      />
+      ></div>
     </ItemWrapper>
   );
 }
